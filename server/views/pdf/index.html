@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goliath PDF</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Manrope';
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px 0;
+      }
+
+      .header {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 20px;
+        padding: 0 30px;
+      }
+
+      .header-divider {
+        margin: 15px 0 0;
+        border: 1px solid #3498db;
+      }
+      .header img {
+        height: 60px;
+        width: auto;
+      }
+
+      .header h4 {
+        font-size: 24px;
+        color: #3498db;
+        font-weight: bold;
+        margin: 5px 0 0;
+      }
+
+      .img-divider {
+        height: 30px;
+        border: 1px solid #3498db;
+      }
+      .main {
+        background-color: #f3f4f6;
+        padding: 15px 30px;
+        margin: 30px 0;
+      }
+      .main h4 {
+        color: rgb(30, 41, 59);
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .main p {
+        color: #6835ff;
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .content img {
+        width: 250px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #f9f9f9;
+        border-radius: 10px;
+      }
+
+      table tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 8px 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table tr:last-child {
+        border-bottom: 0;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+        font-weight: 700;
+        font-size: 15px;
+      }
+
+      th {
+        color: rgb(128, 159, 184);
+        border-radius: 5px 0 0 5px;
+      }
+
+      td {
+        border-radius: 0 5px 5px 0;
+      }
+      .score-board {
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .score {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 8px 20px;
+        background-color: #f3f4f6;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .score i {
+        font-size: 20px;
+        color: rgb(128, 159, 184);
+      }
+
+      .score h3,
+      .score h4 {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .score h4 {
+        margin-left: auto;
+      }
+      .score .pill {
+        background-color: #3498db;
+        color: #fff;
+        padding: 5px 0;
+        border-radius: 12px;
+        text-transform: capitalize;
+        min-width: 98px;
+        text-align: center;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <img
+          src="https://walrus-app-8ueo6.ondigitalocean.app/logo.svg"
+          alt="logo"
+        />
+        <hr class="img-divider" />
+        <h4>Scan Report</h4>
+      </header>
+      <hr class="header-divider" />
+      <main class="main">
+        <h4>Report of {{SCAN_NAME}}</h4>
+        <div class="content">
+          <img src="https://i.ibb.co/Dz6SjpB/3d-report.png" alt="icon" />
+          <table>
+            <tr>
+              <th>Scan Name:</th>
+              <td>{{SCAN_NAME}}</td>
+            </tr>
+            <tr>
+              <th>Scan Targets:</th>
+              <td>{{SCAN_TARGETS}}</td>
+            </tr>
+            <tr>
+              <th>Scan Count:</th>
+              <td>{{SCAN_COUNT}}</td>
+            </tr>
+            <tr>
+              <th>Scanned:</th>
+              <td>{{SCANNED}}</td>
+            </tr>
+            <tr>
+              <th>User:</th>
+              <td>{{EMAIL}}</td>
+            </tr>
+          </table>
+        </div>
+      </main>
+      <div class="score-board">
+        <div class="score">
+          <i class="fa-solid fa-chart-line"></i>
+
+          <h3>Status</h3>
+          <h4 class="pill">{{STATUS}}</h4>
+        </div>
+        <div class="score">
+          <i class="fa-solid fa-asterisk"></i>
+
+          <h3>Risk</h3>
+          <h4 class="pill">{{SCORE}}</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
